@@ -31,3 +31,22 @@ Close.onclick = function () {
   boxContent.classList.remove("active");
   clickCount = 2; // Giữ trạng thái đã mở thiệp, click tiếp sẽ đóng hộp quà
 };
+
+// Music Control
+var bgMusic = document.getElementById("bgMusic");
+var musicIcon = document.getElementById("musicIcon");
+var isMusicPlaying = false;
+
+musicIcon.onclick = function () {
+  if (isMusicPlaying) {
+    bgMusic.pause();
+    musicIcon.classList.remove("fa-volume-high");
+    musicIcon.classList.add("fa-volume-xmark");
+    isMusicPlaying = false;
+  } else {
+    bgMusic.play();
+    musicIcon.classList.remove("fa-volume-xmark");
+    musicIcon.classList.add("fa-volume-high");
+    isMusicPlaying = true;
+  }
+};

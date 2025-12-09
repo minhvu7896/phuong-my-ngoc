@@ -916,3 +916,36 @@ marquee{
     font-family: 'Roboto', sans-serif;
     background: rgba(0, 0, 0, 0.3);
 }
+
+/* Music Control */
+.music-control {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    z-index: 999999999;
+}
+
+.music-control:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.music-control i {
+    font-size: 28px;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.music-control:active {
+    transform: scale(0.95);
+}
