@@ -471,6 +471,9 @@ section{
     animation: rotategiftBottom 0.15s linear infinite,
                 haha 2s 19s linear infinite!important;
 }
+.box-gift.active .gift-bottom{
+    animation: none!important;
+}
 @keyframes haha{
     0%{
         left: 50%;
@@ -556,6 +559,9 @@ section{
     animation: rotategiftTop 0.15s linear infinite,
                 haha 2s 19s linear infinite!important;
 }
+.box-gift.active .gift-top{
+    animation: none!important;
+}
 @keyframes rotategiftTop{
     0%{
         transform: rotate(0deg);
@@ -613,6 +619,9 @@ section{
 .box-fastener{
     animation: haha 2s 19s linear infinite;
 }
+.box-gift.active .box-fastener{
+    animation: none!important;
+}
 .fastener1{
     position: absolute;
     width: 45px;
@@ -667,7 +676,7 @@ section{
     z-index: -1;
     animation: haha 2s 19s linear infinite;
     cursor: pointer;
-    transition: transform 0.5s ease;
+    transition: transform 0.3s ease, filter 0.3s ease;
     left: 50%;
     transform: translate(-50%, 0);
 }
@@ -675,8 +684,14 @@ section{
     left: 50%;
     transform: translate(-50%,-10px)!important;
     cursor: pointer;
+    animation: none!important;
 }
 .box-gift.active .content:hover{
+    left: 50%;
+    transform: translate(-50%,-70px)!important;
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
+}
+.box-gift.active:hover .content{
     left: 50%;
     transform: translate(-50%,-70px)!important;
     filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
