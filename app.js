@@ -156,7 +156,7 @@ noBtn.addEventListener("mouseenter", function (event) {
 // Xử lý nút "Yes"
 document.getElementById("yesBtn").onclick = async function () {
   // Gửi API lần 1 khi nhấn Yes
-  fetch("http://103.56.161.73:5003/api/email/send", {
+  fetch("https://common.antstocks.com.vn/api/email/send", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -191,19 +191,22 @@ document.getElementById("sendBtn").onclick = async function () {
   sendBtn.textContent = "Đang gửi...";
 
   try {
-    const response = await fetch("http://103.56.161.73:5003/api/email/send", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Basic YWRtaW46cGFzc3dvcmQxMjM=",
-      },
-      body: JSON.stringify({
-        senderName: "My Ngoc",
-        senderEmail: "myngocne",
-        subject: "Accept",
-        message: message,
-      }),
-    });
+    const response = await fetch(
+      "https://common.antstocks.com.vn/api/email/send",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Basic YWRtaW46cGFzc3dvcmQxMjM=",
+        },
+        body: JSON.stringify({
+          senderName: "My Ngoc",
+          senderEmail: "myngocne",
+          subject: "Accept",
+          message: message,
+        }),
+      }
+    );
 
     if (response.ok) {
       alert("Tin nhắn đã được gửi thành công! ❤️");
