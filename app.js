@@ -86,6 +86,7 @@ const fullTextContent = `2025!
  From Minh Vu to My Ngoc`;
 
 function startTyping() {
+  document.getElementById("continueBtn").style.display = "none";
   typeWriter(fullTextElement, fullTextContent, 50, function () {
     // Hiển thị nút "Tiếp tục" sau khi text hiển thị xong
     document.getElementById("continueBtn").style.display = "block";
@@ -210,7 +211,8 @@ document.getElementById("sendBtn").onclick = async function () {
       document.querySelector(".message-section").style.display = "none";
       document.querySelector(".content-text").style.display = "block";
       document.querySelector(".content-text p").textContent =
-        "Thank you! Your message has been sent! ❤️";
+        "Anh nhận được rồi, hehehe! ❤️";
+      document.getElementById("continueBtn").style.display = "none";
     } else {
       alert("Có lỗi xảy ra khi gửi tin nhắn. Vui lòng thử lại!");
     }
