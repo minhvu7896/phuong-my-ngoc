@@ -580,15 +580,15 @@ section{
     }
 }
 .box-gift.active .gift-top{
-    transform: translate(20px, -30px) rotate(15deg)!important;
+    transform: translate(70px, -90px) rotate(100deg)!important;
 }
 .box-gift.active .gift-bottom{
     left: 50%;
     transform: translate(-50%, 0px)!important;
 }
-.box-gift.active .box-fastener{
-    transform: translate(20px, -30px) rotate(15deg)!important;
-}
+/* .box-gift.active .box-fastener{
+    transform: translate(70px, -90px) rotate(100deg)!important;
+} */
 .box-gift .gift-top::before{
     position: absolute;
     content: '';
