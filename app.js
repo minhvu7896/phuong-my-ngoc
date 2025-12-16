@@ -13,10 +13,12 @@ boxgift.onclick = function () {
   } else if (clickCount === 2) {
     // Lần click thứ hai: mở thiệp
     boxContent.classList.add("active");
+    setTimeout(startTyping, 500);
   } else {
     // Lần click thứ ba: đóng hộp quà và reset
     boxgift.classList.remove("active");
     boxContent.classList.remove("active");
+    fullTextElement.textContent = "";
     clickCount = 0;
   }
 };
@@ -25,10 +27,12 @@ boxgift.onclick = function () {
 content.onclick = function (e) {
   e.stopPropagation(); // Ngăn sự kiện lan ra boxgift
   boxContent.classList.add("active");
+  setTimeout(startTyping, 500);
 };
 
 Close.onclick = function () {
   boxContent.classList.remove("active");
+  fullTextElement.textContent = "";
   clickCount = 2; // Giữ trạng thái đã mở thiệp, click tiếp sẽ đóng hộp quà
 };
 
@@ -50,3 +54,33 @@ musicIcon.onclick = function () {
     isMusicPlaying = true;
   }
 };
+
+// Typewriter effect
+function typeWriter(element, text, speed, callback) {
+  let i = 0;
+  element.textContent = "";
+  function type() {
+    if (i < text.length) {
+      element.textContent += text.charAt(i);
+      i++;
+      setTimeout(type, speed);
+    } else {
+      if (callback) callback();
+    }
+  }
+  type();
+}
+
+const fullTextElement = document.getElementById("fullText");
+
+const fullTextContent = `2025!
+
+ Noel came to us, honey. I want to say that I love you so much and will stand by you forever. Wish you the sweetest things!
+
+ I know I'm not your first love...but I'd love to be your last...
+
+ From Minh Vu to My Ngoc`;
+
+function startTyping() {
+  typeWriter(fullTextElement, fullTextContent, 50);
+}

@@ -722,85 +722,42 @@ section{
 }
 .content-text{
     position: absolute;
-    display: flex;
-    left: 50%;
-    transform: translateX(-50%);
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    margin: 100px 90px 60px 160px;
     overflow: hidden;
 }
 .text1{
     width: 100px;
     padding: 5px 5px 0px 5px;
     margin-top: 70px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     overflow: hidden;
 }
 .content-text p{
-    font-size: 30px;
-    transform: translateY(-40px);
+    font-size: 22px;
     font-family: 'Dancing Script', cursive;
     font-weight: bold;
-}
-.box-content:hover #text1{
-    animation: contentText 3s forwards;
-    animation-delay: 1s;
-}
-@keyframes contentText{
-    0%{
-        transform: translateY(-40px);
-    }
-    100%{
-        transform: translateY(0px);
-    }
+    text-align: left;
+    white-space: pre-line;
 }
 .text2{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
     flex-direction: column;
     width: 500px;
     overflow: hidden;
 }
+.text2 h2{
+    text-align: left;
+}
 .text2 h2:nth-child(1){
     padding: 5px 5px 0px 5px;
     font-size: 22px;
-    transform: translateX(-500px);
     font-family: 'Dancing Script', cursive;
-}
-.box-content:hover #text2{
-    animation: contenttext1 2s ease-in forwards;
-    animation-delay: 2s;
-}
-@keyframes contenttext1{
-    0%{
-        transform: translateX(-500px);
-    }
-    100%{
-        transform: translateX(0px);
-    }
+    text-align: left;
 }
 .text2 h2:nth-child(2){
     padding: 0px 5px 0px 5px;
     font-size: 22px;
-    transform: translateX(500px);
     font-family: 'Dancing Script', cursive;
-}
-.box-content:hover #text3{
-    animation: contenttext2 2s ease-in forwards;
-    animation-delay: 2s;
-}
-@keyframes contenttext2{
-    0%{
-        transform: translateX(500px);
-    }
-    100%{
-        transform: translateX(0px);
-    }
+    text-align: left;
 }
 .image-santa-content{
     position: relative;
