@@ -1086,3 +1086,75 @@ marquee{
     opacity: 0.6;
     cursor: not-allowed;
 }
+/* Password Section Styles */
+.password-section {
+    position: absolute;
+    margin: 150px 90px 60px 160px;
+    z-index: 1;
+    text-align: center;
+}
+
+.password-title {
+    font-size: 28px;
+    font-family: 'Dancing Script', cursive;
+    color: #d4424c;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.password-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px 20px;
+    font-size: 18px;
+    font-family: 'Dancing Script', cursive;
+    border: 2px solid #d4424c;
+    border-radius: 25px;
+    outline: none;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.password-input:focus {
+    border-color: #f5576c;
+    box-shadow: 0 0 15px rgba(245, 87, 108, 0.3);
+    transform: scale(1.02);
+}
+
+.unlock-btn {
+    padding: 15px 50px;
+    font-size: 20px;
+    font-family: 'Dancing Script', cursive;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(135deg, #f5576c, #d4424c);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4);
+}
+
+.unlock-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(245, 87, 108, 0.6);
+}
+
+.unlock-btn:active {
+    transform: translateY(0);
+}
+
+.password-error {
+    color: #d4424c;
+    font-size: 16px;
+    font-family: 'Dancing Script', cursive;
+    margin-top: 10px;
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}

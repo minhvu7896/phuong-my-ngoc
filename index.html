@@ -76,9 +76,15 @@
                     <div class="box-content">
                         <i class="fa-solid fa-xmark"></i>
                         <div class="content1">
-                            <div class="content-text">
+                            <div class="password-section">
+                                <h2 class="password-title">Nhập mật khẩu để mở thư</h2>
+                                <input type="password" id="passwordInput" class="password-input" placeholder="Nhập mật khẩu...">
+                                <button id="unlockBtn" class="unlock-btn">Mở thư</button>
+                                <p id="passwordError" class="password-error" style="display: none;">Mật khẩu không đúng! Thử lại nhé.</p>
+                            </div>
+                            <div class="content-text" style="display: none;">
                                 <p id="fullText"></p>
-                                <button id="continueBtn" class="continue-btn" style="display: none; white-space: normal;">Nhấn vào đây để tiếp tục <br> khúc này xem một mình thôi nha</button>
+                                <button id="continueBtn" class="continue-btn" style="display: none; white-space: normal;">Còn nữa!!! <br> Nhấn vào đây để tiếp tục</button>
                             </div>
                             <div class="question-section" style="display: none;">
                                 <h2 class="question-text">Em ơi, làm người yêu anh nhé?</h2>

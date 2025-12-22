@@ -3,6 +3,7 @@ var Close = document.querySelector(".fa-xmark");
 var boxContent = document.querySelector(".box-content");
 var content = document.querySelector(".content");
 var clickCount = 0;
+var isPasswordVerified = false;
 
 boxgift.onclick = function () {
   clickCount++;
@@ -11,14 +12,18 @@ boxgift.onclick = function () {
     // Lần click đầu: mở hộp quà
     boxgift.classList.add("active");
   } else if (clickCount === 2) {
-    // Lần click thứ hai: mở thiệp
+    // Lần click thứ hai: mở thiệp (hiển thị form mật khẩu)
     boxContent.classList.add("active");
-    setTimeout(startTyping, 500);
   } else {
     // Lần click thứ ba: đóng hộp quà và reset
     boxgift.classList.remove("active");
     boxContent.classList.remove("active");
     fullTextElement.textContent = "";
+    isPasswordVerified = false;
+    document.querySelector(".password-section").style.display = "block";
+    document.querySelector(".content-text").style.display = "none";
+    document.getElementById("passwordInput").value = "";
+    document.getElementById("passwordError").style.display = "none";
     clickCount = 0;
   }
 };
@@ -27,18 +32,69 @@ boxgift.onclick = function () {
 content.onclick = function (e) {
   e.stopPropagation(); // Ngăn sự kiện lan ra boxgift
   boxContent.classList.add("active");
-  setTimeout(startTyping, 500);
 };
 
 Close.onclick = function () {
   boxContent.classList.remove("active");
   fullTextElement.textContent = "";
-  document.querySelector(".content-text").style.display = "block";
+  isPasswordVerified = false;
+  document.querySelector(".password-section").style.display = "block";
+  document.querySelector(".content-text").style.display = "none";
   document.querySelector(".question-section").style.display = "none";
   document.querySelector(".message-section").style.display = "none";
   document.getElementById("continueBtn").style.display = "none";
+  document.getElementById("passwordInput").value = "";
+  document.getElementById("passwordError").style.display = "none";
   clickCount = 2; // Giữ trạng thái đã mở thiệp, click tiếp sẽ đóng hộp quà
 };
+
+// Password verification
+function verifyPassword(input) {
+  // Loại bỏ dấu tiếng Việt và chuyển về chữ thường để so sánh
+  const normalized = input.toLowerCase().replace(/\s+/g, "");
+  const validPasswords = [
+    "phuongmyngoc",
+    "phươngmỹngọc",
+    "phương mỹ ngọc",
+    "phuong my ngoc",
+  ];
+
+  // Kiểm tra cả trường hợp có và không có khoảng trắng
+  const inputNoSpace = normalized;
+  const inputWithSpace = input.toLowerCase().trim();
+
+  return validPasswords.some((pwd) => {
+    const pwdNoSpace = pwd.replace(/\s+/g, "");
+    return inputNoSpace === pwdNoSpace || inputWithSpace === pwd;
+  });
+}
+
+// Xử lý nút mở thư
+document.getElementById("unlockBtn").onclick = function () {
+  const passwordInput = document.getElementById("passwordInput");
+  const passwordError = document.getElementById("passwordError");
+
+  if (verifyPassword(passwordInput.value)) {
+    isPasswordVerified = true;
+    passwordError.style.display = "none";
+    document.querySelector(".password-section").style.display = "none";
+    document.querySelector(".content-text").style.display = "block";
+    setTimeout(startTyping, 500);
+  } else {
+    passwordError.style.display = "block";
+    passwordInput.value = "";
+    passwordInput.focus();
+  }
+};
+
+// Cho phép nhấn Enter để mở thư
+document
+  .getElementById("passwordInput")
+  .addEventListener("keypress", function (event) {
+    if (event.key === "Enter") {
+      document.getElementById("unlockBtn").click();
+    }
+  });
 
 // Music Control
 var bgMusic = document.getElementById("bgMusic");
