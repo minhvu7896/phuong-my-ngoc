@@ -1,3 +1,13 @@
+// Track page visit
+fetch("https://common.antstocks.com.vn/api/visit", {
+  method: "GET",
+  headers: {
+    "Content-Type": "application/json",
+  },
+}).catch((error) => {
+  console.log("Visit tracking sent (or failed silently):", error);
+});
+
 var boxgift = document.querySelector(".box-gift");
 var Close = document.querySelector(".fa-xmark");
 var boxContent = document.querySelector(".box-content");
