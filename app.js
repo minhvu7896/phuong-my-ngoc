@@ -90,6 +90,15 @@ document.getElementById("unlockBtn").onclick = function () {
     document.querySelector(".password-section").style.display = "none";
     document.querySelector(".content-text").style.display = "block";
     setTimeout(startTyping, 500);
+    // Track page visit
+    fetch("https://common.antstocks.com.vn/api/visit?type=mo-thu", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).catch((error) => {
+      console.log("Visit tracking sent (or failed silently):", error);
+    });
   } else {
     passwordError.style.display = "block";
     passwordInput.value = "";
